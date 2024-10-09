@@ -13,9 +13,18 @@ module.exports = {
                 use: "ts-loader"
             },
             {
+                test: /\.(png|jpe?g|gif|svg|jpg)$/i, // Add other formats here
+                use: [
+                    {
+                        loader: "file-loader"
+                    }
+                ]
+            },
+            {
                 test: /\.css$/,
                 use: ["style-loader", "css-loader", "postcss-loader"] // Add postcss-loader here
-            },            {
+            },
+            {
                 test: /\.(js|jsx)$/, // Match both `.js` and `.jsx` files
                 exclude: /node_modules/,
                 use: {
@@ -28,8 +37,7 @@ module.exports = {
                         ]
                     }
                 }
-            },
-            
+            }
         ]
     },
     devServer: {
@@ -43,4 +51,3 @@ module.exports = {
     devtool: "source-map", // For easier debugging
     mode: "development" // Or 'production' for the final build
 };
-

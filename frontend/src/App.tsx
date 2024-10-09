@@ -1,10 +1,24 @@
 import React from "react";
-import Welcome from "./components/Welcome";
+import { Routes, Route } from "react-router-dom";
+import Header from "./components/Header";
+import HomePage from "./pages/HomePage";
+import MenuPage from "./pages/MenuPage";
+import AboutUsPage from "./pages/AboutUsPage";
+import ContactUsPage from "./pages/ContactUsPage";
+import NotFoundPage from "./pages/NotFoundPage";
+
 const App = () => {
     return (
-        <div>
-            <Welcome/>
-        </div>
+        <>
+            <Header />
+            <Routes>
+                <Route element={<HomePage />} path="/" />
+                <Route element={<MenuPage />} path="/menu" />
+                <Route element={<AboutUsPage />} path="/about" />
+                <Route element={<ContactUsPage />} path="/contact" />
+                <Route element={<NotFoundPage />} path="/*" />
+            </Routes>
+        </>
     );
 };
 
